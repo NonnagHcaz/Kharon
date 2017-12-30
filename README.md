@@ -30,9 +30,10 @@ Charon can be imported to be used in custom scripts and modules, ran from the co
 ### Option 1: Module Import
 
 ```python
-    import charon  
-    charon.run(  
-        user='github_user', repo='repo_name', cogs='cog_name')
+import charon  
+data = await charon.format_info_async(  
+    user='github_user', repo='repo_name', cogs='cog_name')
+print(data)
 ```
 
 If no cogs are listed, then Charon will run for all cogs in the repository.

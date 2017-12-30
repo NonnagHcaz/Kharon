@@ -48,6 +48,8 @@ def format_info(user, repo, cog):
 
 
 def _format_info(data):
+    if not data:
+        return None
     data['hidden'] = data['DISABLED']
     data.pop('DISABLED', None)
 

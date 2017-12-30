@@ -2,6 +2,10 @@ import unittest
 import asyncio
 from .context import charon
 
+TEST_USER = 'gannon93'
+TEST_REPO = 'gkit_cogs'
+TEST_COG = 'vapenaysh'
+
 
 def async_test_thread(loop):
     def handler(f):
@@ -31,38 +35,41 @@ class CharonTests(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_format_info(self):
+
+        data = charon.format_info(TEST_USER, TEST_REPO, TEST_COG)
+
+        self.assertTrue(_format_info_helper(data))
+
     @async_test_thread(asyncio.new_event_loop())
     async def test_format_info_async(self):
-        test_user = 'gannon93'
-        test_repo = 'gkit_cogs'
-        test_cog = 'vapenaysh'
 
-        res = await charon.format_info_async(test_user, test_repo, test_cog)
-        repo_author = True if res['author'] in 'Gannon' else False
-        repo_hidden = True if 'hidden' in res.keys() else False
-        repo_disabled = True if 'DISABLED' not in res.keys() else False
+        data = await charon.format_info_async(TEST_USER, TEST_REPO, TEST_COG)
 
-        self.assertTrue(repo_hidden and repo_disabled and repo_author)
+        self.assertTrue(_format_info_helper(data))
 
     def test_get_info(self):
-        test_user = 'gannon93'
-        test_repo = 'gkit_cogs'
-        test_cog = 'vapenaysh'
 
-        res = charon.get_info(test_user, test_repo, test_cog)
-        repo_author = True if res['AUTHOR'] in 'Gannon' else False
-        repo_name = True if res['NAME'] in 'VapeNaysh' else False
+        data = charon.get_info(TEST_USER, TEST_REPO, TEST_COG)
 
-        self.assertTrue(repo_name and repo_author)
+        self.assertTrue(_get_info_helper(data))
 
     @async_test_thread(asyncio.new_event_loop())
     async def test_get_info_async(self):
-        test_user = 'gannon93'
-        test_repo = 'gkit_cogs'
-        test_cog = 'vapenaysh'
 
-        res = await charon.get_info_async(test_user, test_repo, test_cog)
-        repo_author = True if res['AUTHOR'] in 'Gannon' else False
-        repo_name = True if res['NAME'] in 'VapeNaysh' else False
+        data = await charon.get_info_async(TEST_USER, TEST_REPO, TEST_COG)
 
-        self.assertTrue(repo_name and repo_author)
+        self.assertTrue(_get_info_helper(data))
+
+
+def _get_info_helper(data):
+    repo_author = True if data['AUTHOR'] in 'Gannon' else False
+    repo_name = True if data['NAME'] in 'VapeNaysh' else False
+    return(repo_name and repo_author)
+
+
+def _format_info_helper(data):
+    repo_author = True if data['author'][0] in 'Gannon' else False
+    repo_hidden = True if 'hidden' in data.keys() else False
+    repo_disabled = True if 'DISABLED' not in data.keys() else False
+    return(repo_hidden and repo_disabled and repo_author)

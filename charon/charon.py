@@ -40,15 +40,22 @@ class Charon:
 
 async def format_info_async(user, repo, cog):
     data = await get_info_async(user, repo, cog)
-    data['hidden'] = data['DISABLED']
-    data.pop('DISABLED', None)
-
-    data = {key.lower(): val for key, val in data.items()}
-    return data
+    return _format_info(data)
 
 
 def format_info(user, repo, cog):
-    pass
+    data = get_info(user, repo, cog)
+    return _format_info(data)
+
+
+def _format_info(data):
+    data['hidden'] = data['DISABLED']
+    data.pop('DISABLED', None)
+
+    data['AUTHOR'] = data['AUTHOR'].split(',')
+
+    data = {key.lower(): val for key, val in data.items()}
+    return data
 
 
 def get_info(user, repo, cog):

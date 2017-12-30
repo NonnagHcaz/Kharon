@@ -6,7 +6,6 @@ import base64
 
 try:
     import aiohttp
-    import asyncio
     ASYNC_FLAG = True
 except ValueError or TypeError:
     ASYNC_FLAG = False
@@ -34,7 +33,7 @@ INFO_PATTERN = '/'.join([
 
 class Charon:
 
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent=None, *args, **kwargs):
         self.parent = parent
 
 
@@ -84,6 +83,4 @@ async def get_info_async(user, repo, cog):
                 data = await response.json()
                 content = json.loads(
                     base64.b64decode(data['content']).decode('utf-8'))
-            else:
-                print('Content was not found.')
     return content

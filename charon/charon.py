@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 from __future__ import absolute_import, print_function
 
+import json
+import base64
+
 try:
     import aiohttp
     import asyncio
-    import base64
     ASYNC_FLAG = True
-except:
-    import requests
+except ValueError or TypeError:
     ASYNC_FLAG = False
+
+try:
+    import requests
+    SYNC_FLAG = True
+except ValueError or TypeError:
+    SYNC_FLAG = False
 
 GITHUB_ENDPOINT = '/'.join(['https://api.github.com', 'repos'])
 
@@ -31,17 +38,36 @@ class Charon:
         self.parent = parent
 
 
+async def format_info_async(user, repo, cog):
+    data = await get_info_async(user, repo, cog)
+    data['hidden'] = data['DISABLED']
+    data.pop('DISABLED', None)
+
+    data = {key.lower(): val for key, val in data.items()}
+    return data
+
+
+def format_info(user, repo, cog):
+    pass
+
+
 def get_info(user, repo, cog):
+    if not SYNC_FLAG:
+        return None
     url = INFO_PATTERN.format(user=user, repo=repo, cog=cog)
 
     content = None
     response = requests.get(url)
     if response.status_code == requests.codes.ok:
-        content = response.json()
+        data = response.json()
+        content = json.loads(
+            base64.b64decode(data['content']).decode('utf-8'))
     return content
 
 
 async def get_info_async(user, repo, cog):
+    if not ASYNC_FLAG:
+        return None
     url = INFO_PATTERN.format(user=user, repo=repo, cog=cog)
 
     content = None
@@ -49,7 +75,8 @@ async def get_info_async(user, repo, cog):
         async with session.get(url) as response:
             if response.status is 200:
                 data = await response.json()
-                content = base64.decodestring(data['content'])
+                content = json.loads(
+                    base64.b64decode(data['content']).decode('utf-8'))
             else:
                 print('Content was not found.')
     return content

@@ -7,13 +7,13 @@ import base64
 try:
     import aiohttp
     ASYNC_FLAG = True
-except ValueError or TypeError:
+except Exception:
     ASYNC_FLAG = False
 
 try:
     import requests
     SYNC_FLAG = True
-except ValueError or TypeError:
+except Exception:
     SYNC_FLAG = False
 
 GITHUB_ENDPOINT = '/'.join(['https://api.github.com', 'repos'])
@@ -33,7 +33,7 @@ INFO_PATTERN = '/'.join([
 
 class Charon:
 
-    def __init__(self, parent=None, *args, **kwargs):
+    def __init__(self, parent=None):
         self.parent = parent
 
 
@@ -64,7 +64,7 @@ def get_info(user, repo, cog):
 
     content = None
     response = requests.get(url)
-    if response.status_code == requests.codes.ok:
+    if response.status_code is 200:
         data = response.json()
         content = json.loads(
             base64.b64decode(data['content']).decode('utf-8'))

@@ -19,8 +19,6 @@ def async_test(loop):
 
 class CharonTests(unittest.TestCase):
     def setUp(self):
-        self.loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(self.loop)
         self.charon = charon.Charon()
 
     def tearDown(self):

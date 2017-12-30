@@ -1,5 +1,4 @@
-[![Travis - Linux](https://img.shields.io/travis/gannon93/Charon.svg?label=Linux%20Status)](https://travis-ci.org/gannon93/Charon) [![AppVeyor - Windows](https://img.shields.io/appveyor/ci/Gannon93/Charon.svg?label=Windows%20Status)](https://ci.appveyor.com/project/Gannon93/Charon)  
-[![Codecov](https://img.shields.io/codecov/c/github/gannon93/Charon.svg?label=Coverage)](https://codecov.io/github/gannon93/Charon?branch=master) [![Code Health](https://landscape.io/github/gannon93/Charon/master/landscape.svg?style=flat&label=Health)](https://landscape.io/github/gannon93/Charon/master)  
+[![Travis - Linux](https://img.shields.io/travis/gannon93/Charon.svg?label=Linux%20Status)](https://travis-ci.org/gannon93/Charon) [![AppVeyor - Windows](https://img.shields.io/appveyor/ci/Gannon93/Charon.svg?label=Windows%20Status)](https://ci.appveyor.com/project/Gannon93/Charon) [![Codecov](https://img.shields.io/codecov/c/github/gannon93/Charon.svg?label=Coverage)](https://codecov.io/github/gannon93/Charon?branch=master) [![Code Health](https://landscape.io/github/gannon93/Charon/master/landscape.svg?style=flat&label=Health)](https://landscape.io/github/gannon93/Charon/master)  
 
 # Charon
 The ferryman you need to travel the gap from Red v2 to Red v3.

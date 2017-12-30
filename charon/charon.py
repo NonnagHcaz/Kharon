@@ -87,21 +87,3 @@ async def get_info_async(user, repo, cog):
             else:
                 print('Content was not found.')
     return content
-
-
-async def async_test():
-    res = await get_info_async('gannon93', 'gkit_cogs', 'vapenaysh')
-    print(res)
-
-
-def sync_test():
-    print(get_info('gannon93', 'gkit_cogs', 'vapenaysh'))
-
-
-if __name__ == '__main__':
-    if ASYNC_FLAG:
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(async_test())
-        loop.close()
-    else:
-        sync_test()

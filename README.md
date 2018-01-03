@@ -34,7 +34,7 @@ You need at least one of the following:
 - `requests` for synchronous requests
 - `aiohttp` for asynchronous requests
 
-When installing `Kharon` with pip, both `requests` and `aiohttp` will be downloaded as well as `Kharon`.
+When installing with pip, both `requests` and `aiohttp` will be downloaded as well as `Kharon`.
 
 ---
 

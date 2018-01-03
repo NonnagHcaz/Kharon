@@ -31,7 +31,7 @@ INFO_PATTERN = '/'.join([
     '{user}', '{repo}', 'contents', '{cog}', 'info.json'])
 
 
-class Charon:
+class kharon:
 
     def __init__(self, parent=None):
         self.parent = parent

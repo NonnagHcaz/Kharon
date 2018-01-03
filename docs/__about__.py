@@ -3,9 +3,9 @@
 from __future__ import absolute_import, print_function, division
 
 __version__ = '0.0.9'
-__title__ = 'Charon'
+__title__ = 'Kharon'
 __summary__ = 'Your personal ferryman to travel the Red gap from v2 to v3.'
-__uri__ = 'https://github.com/Gannon93/charon'
+__uri__ = 'https://github.com/Gannon93/Kharon'
 __author__ = 'Zach Gannon'
 __email__ = 'zachgannon93@gmail.com'
 __license__ = 'MIT'

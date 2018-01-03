@@ -1,6 +1,6 @@
 import unittest
 import asyncio
-from .context import charon
+from .context import kharon
 import json
 import os
 
@@ -23,22 +23,22 @@ def async_test(loop):
     return handler
 
 
-class CharonTests(unittest.TestCase):
+class kharonTests(unittest.TestCase):
     def setUp(self):
-        self.charon = charon.Charon()
+        self.kharon = kharon.kharon()
 
     def tearDown(self):
         pass
 
     def test_format_info(self):
-        data = charon.format_info(
+        data = kharon.format_info(
             TEST_DATA)
 
         self.assertTrue(_format_info_helper(data))
 
     def test_get_and_format_info(self):
 
-        data = charon.get_and_format_info(
+        data = kharon.get_and_format_info(
             TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_format_info_helper(data))
@@ -46,14 +46,14 @@ class CharonTests(unittest.TestCase):
     @async_test(asyncio.new_event_loop())
     async def test_get_and_format_info_async(self):
 
-        data = await charon.get_and_format_info_async(
+        data = await kharon.get_and_format_info_async(
             TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_format_info_helper(data))
 
     def test_get_info(self):
 
-        data = charon.get_info(
+        data = kharon.get_info(
             TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_get_info_helper(data))
@@ -61,7 +61,7 @@ class CharonTests(unittest.TestCase):
     @async_test(asyncio.new_event_loop())
     async def test_get_info_async(self):
 
-        data = await charon.get_info_async(
+        data = await kharon.get_info_async(
             TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_get_info_helper(data))

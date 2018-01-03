@@ -1,21 +1,21 @@
-[![Travis - Linux](https://img.shields.io/travis/gannon93/Charon.svg?label=Linux%20Status)](https://travis-ci.org/gannon93/Charon) [![AppVeyor - Windows](https://img.shields.io/appveyor/ci/Gannon93/Charon.svg?label=Windows%20Status)](https://ci.appveyor.com/project/Gannon93/Charon) [![Codecov](https://img.shields.io/codecov/c/github/gannon93/Charon.svg?label=Coverage)](https://codecov.io/github/gannon93/Charon?branch=master) [![Code Health](https://landscape.io/github/gannon93/Charon/master/landscape.svg?style=flat&label=Health)](https://landscape.io/github/gannon93/Charon/master)  
+[![Travis - Linux](https://img.shields.io/travis/gannon93/kharon.svg?label=Linux%20Status)](https://travis-ci.org/gannon93/kharon) [![AppVeyor - Windows](https://img.shields.io/appveyor/ci/Gannon93/kharon.svg?label=Windows%20Status)](https://ci.appveyor.com/project/Gannon93/kharon) [![Codecov](https://img.shields.io/codecov/c/github/gannon93/kharon.svg?label=Coverage)](https://codecov.io/github/gannon93/kharon?branch=master) [![Code Health](https://landscape.io/github/gannon93/kharon/master/landscape.svg?style=flat&label=Health)](https://landscape.io/github/gannon93/kharon/master)  
 
-# Charon
+# Kharon
 The ferryman you need to travel the gap from Red v2 to Red v3.
 
 ---
 
 ## DESCRIPTION
 
-Charon is a python module that will assist you in transitioning your Red-discordBot cogs from v2 to v3.
+Kharon is a python module that will assist you in transitioning your Red-discordBot cogs from v2 to v3.
 
-Notably, Charon will:
+Notably, Kharon will:
 
 - Format `info.json` files
 - Add `__init__.py` files with standard setup details
 - Convert old `util` and `data.IO` imports to new imports
 
-Charon also provides both synchronous and asynchronous versions of any method performing HTTP requests.
+Kharon also provides both synchronous and asynchronous versions of any method performing HTTP requests.
 
 ---
 
@@ -23,7 +23,7 @@ Charon also provides both synchronous and asynchronous versions of any method pe
 
 _**Not yet on PyPI**_, but when it is:
 
-> python -m pip install Charon
+> python -m pip install Kharon
 
 ---
 
@@ -34,35 +34,35 @@ You need at least one of the following:
 - `requests` for synchronous requests
 - `aiohttp` for asynchronous requests
 
-When installing `Charon` with pip, both `requests` and `aiohttp` will be downloaded as well as `Charon`.
+When installing `Kharon` with pip, both `requests` and `aiohttp` will be downloaded as well as `Kharon`.
 
 ---
 
 ## USAGE
 
-Charon can be imported to be used in custom scripts and modules, ran from the command line as a service, or tested at the live site.
+Kharon can be imported to be used in custom scripts and modules, ran from the command line as a service, or tested at the live site.
 
 ### Option 1: Module Import
 
 ```python
-from charon import charon  
+from kharon import kharon  
 
-data = charon.format_info(  
+data = kharon.format_info(  
     user='github_user', repo='repo_name', cogs='cog_name')  
 print(data)  
 
 ```
 
-If no cogs are listed, then Charon will run for all cogs in the repository.
+If no cogs are listed, then Kharon will run for all cogs in the repository.
 
 ### Option 2: CLI Command
 
-> $ Charon -u <github_user> -r <repo_name> -c <cog_name> (optional)
+> $ Kharon -u <github_user> -r <repo_name> -c <cog_name> (optional)
 
 
 ### Option 3: Live Demo
 
-Visit my [personal webpage](https://gannon93.pythonanywhere.com/), built with Django and hosted by the wonderful people at PythonAnywhere, or go directly to the [Demo](https://gannon93.pythonanywhere.com/charon).
+Visit my [personal webpage](https://gannon93.pythonanywhere.com/), built with Django and hosted by the wonderful people at PythonAnywhere, or go directly to the [Demo](https://gannon93.pythonanywhere.com/Kharon).
 
 ---
 

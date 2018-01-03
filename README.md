@@ -15,13 +15,26 @@ Notably, Charon will:
 - Add `__init__.py` files with standard setup details
 - Convert old `util` and `data.IO` imports to new imports
 
+Charon also provides both synchronous and asynchronous versions of any method performing HTTP requests.
+
 ---
 
 ## INSTALL
 
 _**Not yet on PyPI**_, but when it is:
 
-> python -m pip install charon
+> python -m pip install Charon
+
+---
+
+## REQUIREMENTS
+
+You need at least one of the following:
+
+- `requests` for synchronous requests
+- `aiohttp` for asynchronous requests
+
+When installing `Charon` with pip, both `requests` and `aiohttp` will be downloaded as well as `Charon`.
 
 ---
 
@@ -32,17 +45,24 @@ Charon can be imported to be used in custom scripts and modules, ran from the co
 ### Option 1: Module Import
 
 ```python
-import charon  
-data = await charon.format_info_async(  
-    user='github_user', repo='repo_name', cogs='cog_name')
-print(data)
+from charon import charon  
+
+data = charon.format_info(  
+    user='github_user', repo='repo_name', cogs='cog_name')  
+print(data)  
+
 ```
 
 If no cogs are listed, then Charon will run for all cogs in the repository.
 
 ### Option 2: CLI Command
 
-> $ charon -u <github_user> -r <repo_name> -c <cog_name> (optional)
+> $ Charon -u <github_user> -r <repo_name> -c <cog_name> (optional)
+
+
+### Option 3: Live Demo
+
+Visit my [personal webpage](https://gannon93.pythonanywhere.com/), built with Django and hosted by the wonderful people at PythonAnywhere, or go directly to the [Demo](https://gannon93.pythonanywhere.com/charon).
 
 ---
 

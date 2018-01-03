@@ -37,13 +37,17 @@ class Charon:
         self.parent = parent
 
 
-async def format_info_async(user, repo, cog):
+async def get_and_format_info_async(user, repo, cog):
     data = await get_info_async(user, repo, cog)
     return _format_info(data)
 
 
-def format_info(user, repo, cog):
+def get_and_format_info(user, repo, cog):
     data = get_info(user, repo, cog)
+    return _format_info(data)
+
+
+def format_info(data):
     return _format_info(data)
 
 

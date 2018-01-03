@@ -1,10 +1,16 @@
 import unittest
 import asyncio
 from .context import charon
+import json
+import os
+
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 TEST_USER = 'gannon93'
 TEST_REPO = 'gkit_cogs'
 TEST_COG = 'vapenaysh'
+
+TEST_DATA = json.load(open(os.path.join(HERE, 'data', 'info.json')))
 
 
 def async_test(loop):
@@ -25,28 +31,38 @@ class CharonTests(unittest.TestCase):
         pass
 
     def test_format_info(self):
+        data = charon.format_info(
+            TEST_DATA)
 
-        data = charon.format_info(TEST_USER, TEST_REPO, TEST_COG)
+        self.assertTrue(_format_info_helper(data))
+
+    def test_get_and_format_info(self):
+
+        data = charon.get_and_format_info(
+            TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_format_info_helper(data))
 
     @async_test(asyncio.new_event_loop())
-    async def test_format_info_async(self):
+    async def test_get_and_format_info_async(self):
 
-        data = await charon.format_info_async(TEST_USER, TEST_REPO, TEST_COG)
+        data = await charon.get_and_format_info_async(
+            TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_format_info_helper(data))
 
     def test_get_info(self):
 
-        data = charon.get_info(TEST_USER, TEST_REPO, TEST_COG)
+        data = charon.get_info(
+            TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_get_info_helper(data))
 
     @async_test(asyncio.new_event_loop())
     async def test_get_info_async(self):
 
-        data = await charon.get_info_async(TEST_USER, TEST_REPO, TEST_COG)
+        data = await charon.get_info_async(
+            TEST_USER, TEST_REPO, TEST_COG)
 
         self.assertTrue(_get_info_helper(data))
 

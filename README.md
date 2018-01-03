@@ -21,7 +21,7 @@ Kharon also provides both synchronous and asynchronous versions of any method pe
 
 ## INSTALL
 
-_**Not yet on PyPI**_, but when it is:
+_**Now on PyPI!**_
 
 > python -m pip install Kharon
 

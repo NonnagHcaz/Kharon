@@ -12,8 +12,6 @@ Kharon is a python module that will assist you in transitioning your Red-discord
 Notably, Kharon will:
 
 - Format `info.json` files
-- Add `__init__.py` files with standard setup details
-- Convert old `util` and `data.IO` imports to new imports
 
 Kharon also provides both synchronous and asynchronous versions of any method performing HTTP requests.
 

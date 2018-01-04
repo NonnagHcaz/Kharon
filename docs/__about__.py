@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, print_function, division
 
-__version__ = '0.0.9'
+__version__ = '0.1.0'
 __title__ = 'Kharon'
 __summary__ = 'Your personal ferryman to travel the Red gap from v2 to v3.'
 __uri__ = 'https://github.com/Gannon93/Kharon'

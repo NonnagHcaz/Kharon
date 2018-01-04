@@ -51,4 +51,5 @@ setup(
     zip_safe=False,
     classifiers=find_meta('classifiers').split('\n'),
     include_package_data=True,
-    test_suite='tests')
+    test_suite='tests',
+    install_requires=['aiohttp', 'requests'])

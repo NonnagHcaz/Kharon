@@ -3,6 +3,8 @@
 # Kharon
 The ferryman you need to travel the gap from Red v2 to Red v3.
 
+_**Join my Discord server: https://discord.gg/zw7NmT**_
+
 ---
 
 ## DESCRIPTION

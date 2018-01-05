@@ -62,7 +62,7 @@ If no cogs are listed, then Kharon will run for all cogs in the repository.
 
 ### Option 3: Live Demo
 
-Visit my [personal webpage](https://gannon93.pythonanywhere.com/), built with Django and hosted by the wonderful people at PythonAnywhere, or go directly to the [Demo](https://gannon93.pythonanywhere.com/Kharon).
+Visit my [personal webpage](http://www.ifnameismain.com/), built with Django and hosted by the wonderful people at PythonAnywhere, or go directly to the [Demo](http://www.ifnameismain.com/Kharon).
 
 ---
 
